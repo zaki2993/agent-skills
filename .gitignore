@@ -1,0 +1,23 @@
+# Anthropic account skills (not ours to publish)
+synced/
+
+# Copies from the product-engineering plugin (no license)
+beachhead-segment/
+competitor-analysis/
+growth-loops/
+market-segments/
+propose/
+start-here/
+value-curve/
+value-proposition/
+
+# Third-party skills without a license file
+deep-research/
+find-skills/
+
+# Own repo (zaki2993/claude-learn-skill)
+learn/
+
+# Links to system files from the omarchy package
+omarchy
+diagnose-crash
