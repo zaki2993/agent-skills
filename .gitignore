@@ -1,23 +1,11 @@
-# Anthropic account skills (not ours to publish)
-synced/
+# This repo holds only my own skills. setup.sh installs all other skills
+# from their authors (see skills.txt). Ignore everything else.
+/*
+!/.gitignore
+!/README.md
+!/setup.sh
+!/skills.txt
 
-# Copies from the product-engineering plugin (no license)
-beachhead-segment/
-competitor-analysis/
-growth-loops/
-market-segments/
-propose/
-start-here/
-value-curve/
-value-proposition/
-
-# Third-party skills without a license file
-deep-research/
-find-skills/
-
-# Own repo (zaki2993/claude-learn-skill)
-learn/
-
-# Links to system files from the omarchy package
-omarchy
-diagnose-crash
+# My own skills
+!/break-the-box/
+!/plugin/

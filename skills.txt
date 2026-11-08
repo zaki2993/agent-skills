@@ -1,0 +1,31 @@
+# Skills from other authors. setup.sh installs each one if it is missing.
+# Format: <github repo> <skill name>
+
+anthropics/skills                    frontend-design
+anthropics/skills                    theme-factory
+nextlevelbuilder/ui-ux-pro-max-skill ui-ux-pro-max
+mattpocock/skills                    grill-me
+mattpocock/skills                    grilling
+ayghri/i-have-adhd                   i-have-adhd
+vercel-labs/skills                   find-skills
+jakubkrehel/skills                   better-ui
+alirezarezvani/claude-skills         universal-scraping-architect
+affaan-m/everything-claude-code      deep-research
+affaan-m/everything-claude-code      data-scraper-agent
+
+JuliusBrussee/caveman                caveman
+JuliusBrussee/caveman                cavecrew
+JuliusBrussee/caveman                caveman-commit
+JuliusBrussee/caveman                caveman-compress
+JuliusBrussee/caveman                caveman-help
+JuliusBrussee/caveman                caveman-review
+JuliusBrussee/caveman                caveman-stats
+
+phuryn/product-engineering           beachhead-segment
+phuryn/product-engineering           competitor-analysis
+phuryn/product-engineering           growth-loops
+phuryn/product-engineering           market-segments
+phuryn/product-engineering           propose
+phuryn/product-engineering           start-here
+phuryn/product-engineering           value-curve
+phuryn/product-engineering           value-proposition

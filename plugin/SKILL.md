@@ -1,5 +1,9 @@
+---
+name: plugin
+description: Specialized agent for building and modifying Omarchy desktop plugins.
+---
+
 # Plugin Skill
-Description: Specialized agent for building and modifying Omarchy desktop plugins.
 
 ## Instructions
 Act as an expert Quickshell and QML developer for the Omarchy (Arch Linux/Hyprland) environment. When `/plugin` is called, strictly enforce these rules:
