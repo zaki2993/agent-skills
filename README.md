@@ -16,7 +16,7 @@ The folder `~/.agents/skills` is the hub. Each skill has one real copy in the hu
 
 There are three types of skills:
 
-- **My own skills** are in this repo (`break-the-box`, `plugin`).
+- **My own skills** are in this repo (`plugin`).
 - **Skills from other authors** are in `skills.txt`. The script installs them from GitHub. The repo does not keep a copy.
 - **Omarchy skills** (`omarchy`, `diagnose-crash`) come from the omarchy package. The script links them from `/usr/share/omarchy`.
 
