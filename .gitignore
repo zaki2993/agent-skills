@@ -1,10 +1,15 @@
-# This repo holds only my own skills. setup.sh installs all other skills
-# from their authors (see skills.txt). Ignore everything else.
+# This repo holds my global AGENTS.md and my own skills.
+# setup.sh installs all other skills from their authors (see skills.txt).
 /*
 !/.gitignore
+!/AGENTS.md
 !/README.md
 !/setup.sh
 !/skills.txt
+!/skills/
+
+/skills/*
+!/skills/.ignore
 
 # My own skills
-!/plugin/
+!/skills/plugin/

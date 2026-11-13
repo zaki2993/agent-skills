@@ -1,0 +1,2 @@
+# pi reads .gitignore and hides all skills. This file shows them to pi again.
+!*

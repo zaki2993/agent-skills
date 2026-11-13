@@ -1,22 +1,22 @@
 # agent-skills
 
-My global skills for Claude Code, Codex, OpenCode and Antigravity CLI.
-All agents use the same skills from one folder: `~/.agents/skills`.
+My global `AGENTS.md` rules and skills for Claude Code, Codex, OpenCode and Antigravity CLI.
+Everything lives in one folder: `~/.agents`.
 
 ## How it works
 
-The folder `~/.agents/skills` is the hub. Each skill has one real copy in the hub.
+The folder `~/.agents` holds `AGENTS.md` and the `skills/` hub. Each skill has one real copy in `~/.agents/skills`.
 
-| Agent | Where the agent reads skills | Link |
+| Agent | Global rules (`AGENTS.md`) | Skills |
 |---|---|---|
-| Claude Code | `~/.claude/skills` | One symlink for each skill in the hub |
-| Codex | `~/.codex/skills` | One symlink for each skill in the hub |
-| Antigravity CLI | `~/.gemini/antigravity-cli/skills` | One symlink for each skill in the hub |
-| OpenCode | `~/.agents/skills` | No link. OpenCode reads the hub directly. |
+| Claude Code | `~/.claude/CLAUDE.md` -> `~/.agents/AGENTS.md` | `~/.claude/skills/*` -> `~/.agents/skills/*` |
+| Codex | `~/.codex/AGENTS.md` -> `~/.agents/AGENTS.md` | `~/.codex/skills/*` -> `~/.agents/skills/*` |
+| OpenCode | `instructions` in `~/.config/opencode/opencode.json` | Reads `~/.agents/skills` directly |
+| Antigravity CLI | `~/.gemini/AGENTS.md` -> `~/.agents/AGENTS.md` | `~/.gemini/antigravity-cli/skills/*` -> `~/.agents/skills/*` |
 
 There are three types of skills:
 
-- **My own skills** are in this repo (`plugin`).
+- **My own skills** are in this repo (`skills/plugin`).
 - **Skills from other authors** are in `skills.txt`. The script installs them from GitHub. The repo does not keep a copy.
 - **Omarchy skills** (`omarchy`, `diagnose-crash`) come from the omarchy package. The script links them from `/usr/share/omarchy`.
 
@@ -30,27 +30,28 @@ Before you start, install `git` and `npm`:
 sudo pacman -S git npm
 ```
 
-1. Clone the repo into the hub folder:
+1. Clone the repo into `~/.agents`:
 
    ```sh
-   git clone https://github.com/zaki2993/agent-skills.git ~/.agents/skills
+   git clone https://github.com/zaki2993/agent-skills.git ~/.agents
    ```
 
 2. Run the script:
 
    ```sh
-   ~/.agents/skills/setup.sh
+   ~/.agents/setup.sh
    ```
 
 3. Restart all agents.
 
 The script does these steps:
 
-1. It installs each skill from `skills.txt` that is not in the hub.
-2. It links the Omarchy skills into the hub.
-3. It links every hub skill into Claude, Codex and Antigravity.
-4. It moves a real folder with the same name to `~/skills-backup-<date>`. It does not delete folders.
-5. It removes links to skills that are not in the hub.
+1. It links `~/.agents/AGENTS.md` to Claude, Codex, Antigravity CLI and OpenCode (backing up old files as `*.bak`).
+2. It installs each skill from `skills.txt` that is not in `~/.agents/skills`.
+3. It links the Omarchy skills into `~/.agents/skills`.
+4. It links every skill from `~/.agents/skills` into Claude, Codex and Antigravity CLI.
+5. It moves any conflicting real skill folder to `~/skills-backup-<date>`. It does not delete folders.
+6. It removes links to skills that are gone.
 
 You can run the script again. It changes only what is missing or wrong.
 
@@ -70,13 +71,13 @@ Use the steps for the skill type.
    ---
    ```
 
-3. Add the line `!/my-skill/` to `.gitignore`. If you do not add this line, git ignores the skill.
-4. Run `~/.agents/skills/setup.sh`.
+3. Add the line `!/skills/my-skill/` to `~/.agents/.gitignore`. If you do not add this line, git ignores the skill.
+4. Run `~/.agents/setup.sh`.
 
 **A skill from another author:**
 
 1. Add a line to `skills.txt`: `<github repo> <skill name>`.
-2. Run `~/.agents/skills/setup.sh`.
+2. Run `~/.agents/setup.sh`.
 
 ## Update skills
 
@@ -86,10 +87,11 @@ To update the skills from other authors, run this command:
 npx skills update -g
 ```
 
-To update my own skills, use `git pull` in `~/.agents/skills`.
+To update `AGENTS.md` and my own skills, use `git pull` in `~/.agents`.
 
 ## Rules
 
-- Do not put real skill folders in the agent folders. Put the skill in the hub, then run the script.
+- Edit only `~/.agents/AGENTS.md` for global rules.
+- Do not put real skill folders in the agent folders. Put the skill in `~/.agents/skills`, then run `~/.agents/setup.sh`.
 - Do not install skills with `npx skills add` without `-a codex`. Without this flag, the tool can put copies in the agent folders.
 - Do not push skills from other authors to this repo. Their license can forbid it.
