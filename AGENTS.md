@@ -18,6 +18,7 @@
 
 ## Environment
 - OS: Omarchy (Arch Linux based). Use pacman or yay for packages. Never suggest apt or brew.
+- Agent runner: T3 Code.
 - Respect Omarchy's setup. Don't overwrite its default configs; ask before changing anything in ~/.config.
 - Don't run sudo or change files outside the project without asking me.
 
